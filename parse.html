@@ -1,9 +1,25 @@
 <html>
+<head>
+<style>
+.container {max-width: 820px;margin: 0px auto;margin-top: 50px;}
+.comment {float: left;width: 100%;height: auto;}
+.comment-text-area {float: left;width:100%;height: auto;}
+.textinput {float:left;width: 100%;min-height: 75px;outline: none;resize: none;background: #faffbd; border: 2px solid #CCC; font: normal 12px 'Courier New', Monospace;margin-bottom:10px}
+</style>
+</head>
+
 <body>
 <div align="center">
-<textarea cols="75" id="konversi" placeholder="Tulis/Paste kode disini lalu klik tombol &quot;Parse Script&quot;" rows="12" spellcheck="false" style="background: #faffbd; border: 2px solid #CCC; font: normal 12px 'Courier New', Monospace;margin-bottom:10px"></textarea><br />
+	<div class="container">
+		<div class="comment">
+			<textarea class="textinput" id="konversi" placeholder="Tulis/Paste kode disini lalu klik tombol &quot;Parse Script&quot;" rows="12" spellcheck="false"></textarea><br />
+		</div>
+	</div>
+
 <div align="center">
-<input class="button" onclick="convert();" type="button" value="Parse Script" />&nbsp;&nbsp;<input class="buttonplh" onclick="pilih();" type="button" value="Select All" />&nbsp;&nbsp;<input class="buttonhps" onclick="hapus();" type="button" value="Clear Script" /></div>
+	<input class="button" onclick="convert();" type="button" value="Parse Script" />&nbsp;&nbsp;<input class="buttonplh" onclick="pilih();" type="button" value="Select All" />&nbsp;&nbsp;<input class="buttonhps" onclick="hapus();" type="button" value="Clear Script" /></div>
+</div>
+
 <script type="text/javascript">
 function convert()
 {var ileng = document.getElementById("konversi");var replaced;replaced = ileng.value;replaced = replaced.replace(/&/ig, "&amp;");replaced = replaced.replace(/</ig, "&lt;");replaced = replaced.replace(/>/ig, "&gt;");replaced = replaced.replace(/"/ig, "&quot;");replaced = replaced.replace(/&#177;/ig, "&plusmn;");replaced = replaced.replace(/&#169;/ig, "&copy;");replaced = replaced.replace(/&#174;/ig, "&reg;");replaced = replaced.replace(/ya'll/ig, "ya'll");replaced = replaced.replace(/'/ig, "&#039;");ileng.value = replaced;}
@@ -11,6 +27,5 @@ function hapus(){document.getElementById("konversi").value = "";}
 function pilih(){document.getElementById("konversi").focus();document.getElementById("konversi").select();}
 </script>
 
-</div>
 </body>
 </html>
